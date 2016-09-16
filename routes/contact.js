@@ -4,7 +4,8 @@ const router = express.Router();
 const User = require('../models/user');
 const Profile = require('../models/profile');
 const Contact = require('../models/contact');
-import { requireAuth } from './users';
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 
 router.get('/', requireAuth, (req, res, next) => {

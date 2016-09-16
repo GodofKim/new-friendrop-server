@@ -3,14 +3,15 @@ const router = express.Router();
 /* Models */
 const Profile = require('../models/profile');
 /* Authentication */
-import { requireAuth } from './users';
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 /* APIs */
 router.get('/', requireAuth, (req, res, next) => {
   Profile.findOne({host: req.user._id}, (err, profile) => {
     if (err) return next(err);
 
-    let profileObject = JSON.parse(JSON.stringify(profile));
+    var profileObject = JSON.parse(JSON.stringify(profile));
     res.json({ profiile: profileObject });
   });
 });
@@ -41,7 +42,7 @@ router.get('/:email', (req, res, next) => {
     }
     else {
       // protected 에 있는 것은 지우고 보내도록 업데이트 하시오.
-      let profileObject = JSON.parse(JSON.stringify(profile));
+      var profileObject = JSON.parse(JSON.stringify(profile));
       res.json({profile: profileObject});
     }
   });

@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
+const Profile = require('../models/profile');
 const Drop = require('../models/drop');
-import { requireAuth } from './users';
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 /* APIs */
 // 일단 이렇게 하고.. 나중에 더 좋은 방법을 찾아보자.

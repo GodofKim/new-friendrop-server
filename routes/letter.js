@@ -5,7 +5,8 @@ const User = require('../models/user');
 const Profile = require('../models/profile');
 const Letter = require('../models/letter');
 
-import { requireAuth } from './users';
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt', { session: false });
 
 
 router.get('/', requireAuth, (req, res, next) => {
