@@ -45,7 +45,7 @@ exports.signup = function(req, res, next) {
 
       // make profile document in db/profile
       User.findOne({ email: email }, function(err, userDoc) {
-        let profile = new Profile({
+        var profile = new Profile({
           host: userDoc._id,
           email: email,
           isInitiatied: false
