@@ -1,4 +1,4 @@
-const passport = requrie('passport');
+const passport = require('passport');
 /* Strategies */
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
