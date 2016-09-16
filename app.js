@@ -1,4 +1,5 @@
 const express = require('express');
+var exphbs = require('express-handlebars');
 const path = require('path');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
@@ -21,7 +22,8 @@ const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // DB setup
 //mongoose.connect('');
