@@ -17,6 +17,7 @@ const profile = require('./routes/profile');
 const drop = require('./routes/drop');
 const letter = require('./routes/letter');
 const contact = require('./routes/contact');
+const admin = require('./routes/admin');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/profile', profile);
 app.use('/drop', drop);
 app.use('/letter', letter);
 app.use('/contact', contact);
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
