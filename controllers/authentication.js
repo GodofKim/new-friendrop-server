@@ -1,6 +1,7 @@
 const jwt = require('jwt-simple');
 /* Models */
 const User = require('../models/user');
+const Profile = require('../models/profile');
 /* Config file */
 const config = require('./config');
 
