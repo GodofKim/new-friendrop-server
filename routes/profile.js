@@ -25,7 +25,7 @@ router.get('/', requireAuth, (req, res, next) => {
     if (err) return next(err);
 
     var profileObject = JSON.parse(JSON.stringify(profile));
-    res.json({ profiile: profileObject });
+    res.json({ profile: profileObject });
   });
 });
 
