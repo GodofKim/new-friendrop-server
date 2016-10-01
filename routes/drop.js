@@ -61,8 +61,8 @@ router.get('/', requireAuth, (req, res) => {
 
 /* READ ADDITIONAL OLD/NEW MEMO: GET /api/memo/:listType/:id */
 router.get('/:listType/:id', requireAuth, (req, res) => {
-  let listType = req.params.listType;
-  let id = req.params.id;
+  var listType = req.params.listType;
+  var id = req.params.id;
 
   // CHECK LIST TYPE VALIDITY
   if(listType !== 'old' && listType !== 'new') {
@@ -80,7 +80,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
     });
   }
 
-  let objId = new mongoose.Types.ObjectId(req.params.id);
+  var objId = new mongoose.Types.ObjectId(req.params.id);
 
   if(listType === 'new'){
     // GET NEWER MEMO
