@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "async": "^2.0.1",
     "aws-sdk": "^2.6.3",
     "bcrypt-nodejs": "0.0.3",
     "bcryptjs": "^2.3.0",
