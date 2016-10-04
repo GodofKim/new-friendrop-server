@@ -25,7 +25,7 @@ router.get('/', requireAuth, (req, res) => {
       // 2nd param is the function that each item is passed to
       function(letter, callback){
         // Call an asynchronous function, often a save() to DB
-        Profile.find({email: letter.email}, function (err, profile){
+        Profile.findOne({email: letter.email}).exec((err, profile) => {
           if(err) throw err;
 
           profile = profile[0];
@@ -87,7 +87,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         letters,
         (letter, callback) => {
-          Profile.find({email: letter.email}, (err, profile) => {
+          Profile.findOne({email: letter.email}).exec((err, profile) => {
             if(err) throw err;
             profile = profile[0];
 
@@ -121,7 +121,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         letters,
         (letter, callback) => {
-          Profile.find({email: letter.email}, (err, profile) => {
+          Profile.findOne({email: letter.email}).exec((err, profile) =>  {
             if(err) throw err;
             profile = profile[0];
 

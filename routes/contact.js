@@ -25,10 +25,8 @@ router.get('/', requireAuth, (req, res) => {
       // 2nd param is the function that each item is passed to
       function(contact, callback){
         // Call an asynchronous function, often a save() to DB
-        Profile.find({email: contact.email}, function (err, profile){
+        Profile.findOne({email: contact.email}).exec((err, profile) => {
           if(err) throw err;
-
-          profile = profile[0];
 
           contactsToSend.push({
             _id: contact._id,
@@ -87,7 +85,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         contacts,
         (contact, callback) => {
-          Profile.find({email: contact.email}, (err, profile) => {
+          Profile.findOne({email: contact.email}).exec((err, profile) => {
             if(err) throw err;
             profile = profile[0];
 
@@ -121,7 +119,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         contacts,
         (contact, callback) => {
-          Profile.find({email: contact.email}, (err, profile) => {
+          Profile.findOne({email: contact.email}).exec((err, profile) => {
             if(err) throw err;
             profile = profile[0];
 

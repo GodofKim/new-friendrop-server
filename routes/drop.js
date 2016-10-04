@@ -30,10 +30,8 @@ router.get('/', requireAuth, (req, res) => {
       // 2nd param is the function that each item is passed to
       function(drop, callback){
         // Call an asynchronous function, often a save() to DB
-        Profile.find({email: drop.email}, function (err, profile){
+        Profile.findOne({email: drop.email}).exec((err, profile) => {
           if(err) throw err;
-
-          profile = profile[0];
 
           dropsToSend.push({
             _id: drop._id, // for sorting, keying
@@ -96,9 +94,8 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         drops,
         (drop, callback) => {
-          Profile.find({email: drop.email}, (err, profile) => {
+          Profile.findOne({email: drop.email}).exec((err, profile) => {
             if(err) throw err;
-            profile = profile[0];
 
             dropsToSend.push({
               _id: drop._id, // for sorting, keying
@@ -131,9 +128,8 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         drops,
         (drop, callback) => {
-          Profile.find({email: drop.email}, (err, profile) => {
+          Profile.findOne({email: drop.email}).exec((err, profile) =>  {
             if(err) throw err;
-            profile = profile[0];
 
             dropsToSend.push({
               _id: drop._id, // for sorting, keying
