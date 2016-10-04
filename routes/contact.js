@@ -87,7 +87,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         (contact, callback) => {
           Profile.findOne({email: contact.email}).exec((err, profile) => {
             if(err) throw err;
-            profile = profile[0];
 
             contactsToSend.push({
               _id: contact._id,
@@ -121,7 +120,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         (contact, callback) => {
           Profile.findOne({email: contact.email}).exec((err, profile) => {
             if(err) throw err;
-            profile = profile[0];
 
             contactsToSend.push({
               _id: contact._id,

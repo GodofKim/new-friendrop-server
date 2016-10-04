@@ -28,8 +28,6 @@ router.get('/', requireAuth, (req, res) => {
         Profile.findOne({email: letter.email}).exec((err, profile) => {
           if(err) throw err;
 
-          profile = profile[0];
-
           lettersToSend.push({
             _id: letter._id,
             email: profile.email,
@@ -89,7 +87,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         (letter, callback) => {
           Profile.findOne({email: letter.email}).exec((err, profile) => {
             if(err) throw err;
-            profile = profile[0];
 
             lettersToSend.push({
               _id: letter._id,
@@ -121,9 +118,8 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
       async.each(
         letters,
         (letter, callback) => {
-          Profile.findOne({email: letter.email}).exec((err, profile) =>  {
+          Profile.findOne({email: letter.email}).exec((err, profile) => {
             if(err) throw err;
-            profile = profile[0];
 
             lettersToSend.push({
               _id: letter._id,
