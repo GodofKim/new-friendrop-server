@@ -18,7 +18,6 @@ router.get('/', requireAuth, (req, res) => {
     if(err) throw err;
 
     contacts = JSON.parse(JSON.stringify(contacts));
-    console.log(contacts);
 
     var contactsToSend = [];
     // 1st para in async.each() is the array of items
@@ -47,7 +46,6 @@ router.get('/', requireAuth, (req, res) => {
       // 3rd param is the function to call when everything's done
       function(err){
         // All tasks are done now
-        console.log(contactsToSend);
         return res.json(contactsToSend);
       }
     );
@@ -107,7 +105,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         },
         (err) => {
           // All tasks are done now
-            console.log(contactsToSend);
             return res.json(contactsToSend);
         });
     });
@@ -142,7 +139,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         },
         (err) => {
           // All tasks are done now
-            console.log(contactsToSend);
             return res.json(contactsToSend);
         });
     });

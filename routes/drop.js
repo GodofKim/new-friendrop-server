@@ -22,7 +22,7 @@ router.get('/', requireAuth, (req, res) => {
     if(err) throw err;
 
     drops = JSON.parse(JSON.stringify(drops));
-    console.log(drops);
+
 
     var dropsToSend = [];
     // 1st para in async.each() is the array of items
@@ -115,7 +115,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         },
         (err) => {
           // All tasks are done now
-            console.log(dropsToSend);
             return res.json(dropsToSend);
         });
     });
@@ -151,7 +150,6 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
         },
         (err) => {
           // All tasks are done now
-            console.log(dropsToSend);
             return res.json(dropsToSend);
         });
     });
