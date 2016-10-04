@@ -55,8 +55,7 @@ router.get('/:email', (req, res, next) => {
     }
     else {
       // protected 에 있는 것은 지우고 보내도록 업데이트 하시오.
-      var profileObject = JSON.parse(JSON.stringify(profile));
-      res.json({profile: profileObject});
+      res.json({profile});
     }
   });
 });
