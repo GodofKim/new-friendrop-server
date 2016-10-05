@@ -47,8 +47,8 @@ router.put('/', requireAuth, (req, res, next) => {
   });
 });
 
-router.get('/:email', (req, res, next) => {
-  Profile.findOne({ email: req.params.email}, (err, profile) => {
+router.get('/:_id', (req, res, next) => {
+  Profile.findOne({ _id: req.params._id}, (err, profile) => {
     if(err) return next(err);
     if(!profile) {
       res.status(404).send({ error: "User doesn't exist"});
