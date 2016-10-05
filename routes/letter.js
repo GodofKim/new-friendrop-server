@@ -30,7 +30,7 @@ router.get('/', requireAuth, (req, res) => {
 
           lettersToSend.push({
             _id: letter._id,
-            email: profile.email,
+            profileId: profile._id,
             name: profile.name,
             nickname: profile.nickname,
             content: letter.content,
@@ -90,7 +90,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             lettersToSend.push({
               _id: letter._id,
-              email: profile.email,
+              profileId: profile._id,
               name: profile.name,
               nickname: profile.nickname,
               content: letter.content,
@@ -123,7 +123,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             lettersToSend.push({
               _id: letter._id,
-              email: profile.email,
+              profileId: profile._id,
               name: profile.name,
               nickname: profile.nickname,
               content: letter.content,

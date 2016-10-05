@@ -35,7 +35,7 @@ router.get('/', requireAuth, (req, res) => {
 
           dropsToSend.push({
             _id: drop._id, // for sorting, keying
-            email: profile.email,
+            profileId: profile._id,
             name: profile.name,
             nickname: profile.nickname,
             gender: profile.gender,
@@ -99,13 +99,13 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             dropsToSend.push({
               _id: drop._id, // for sorting, keying
-                email: profile.email,
-                name: profile.name,
-                nickname: profile.nickname,
-                gender: profile.gender,
-                school: profile.school,
-                major: profile.major,
-                date: drop.date
+              profileId: profile._id,
+              name: profile.name,
+              nickname: profile.nickname,
+              gender: profile.gender,
+              school: profile.school,
+              major: profile.major,
+              date: drop.date
             });
             callback();
           });
@@ -133,7 +133,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             dropsToSend.push({
               _id: drop._id, // for sorting, keying
-                email: profile.email,
+                profileId: profile._id,
                 name: profile.name,
                 nickname: profile.nickname,
                 gender: profile.gender,

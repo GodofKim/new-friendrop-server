@@ -30,7 +30,7 @@ router.get('/', requireAuth, (req, res) => {
 
           contactsToSend.push({
             _id: contact._id,
-            email: profile.email,
+            profileId: profile._id,
             name: profile.name,
             nickname: profile.nickname,
             phone: profile.phone,
@@ -90,7 +90,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             contactsToSend.push({
               _id: contact._id,
-              email: profile.email,
+              profileId: profile._id,
               name: profile.name,
               nickname: profile.nickname,
               phone: profile.phone,
@@ -123,7 +123,7 @@ router.get('/:listType/:id', requireAuth, (req, res) => {
 
             contactsToSend.push({
               _id: contact._id,
-              email: profile.email,
+              profileId: profile._id,
               name: profile.name,
               nickname: profile.nickname,
               phone: profile.phone,
